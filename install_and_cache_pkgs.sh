@@ -33,7 +33,7 @@ write_manifest "main" "${manifest_main}" "${cache_dir}/manifest_main.log"
 log_empty_line
 
 log "Updating APT package list..."
-sudo apt-fast update > /dev/null
+sudo apt-get update > /dev/null
 log "done"
 
 log_empty_line
@@ -47,7 +47,7 @@ install_log_filepath="${cache_dir}/install.log"
 
 log "Clean installing ${package_count} packages..."
 # Zero interaction while installing or upgrading the system via apt.
-sudo DEBIAN_FRONTEND=noninteractive apt-fast --yes install ${normalized_packages} > "${install_log_filepath}"
+sudo DEBIAN_FRONTEND=noninteractive apt-get --yes install ${normalized_packages} > "${install_log_filepath}"
 log "done"
 log "Installation log written to ${install_log_filepath}"
 
